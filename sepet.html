@@ -15,7 +15,7 @@
         .checkout-btn:hover { background-color: #C68E8C; }
         .remove-btn { background: none; border: none; color: #999; text-decoration: underline; cursor: pointer; font-size: 12px; }
         .remove-btn:hover { color: #e74c3c; }
-        .empty-msg { text-align: center; color: #888; font-style: italic; display: none; }
+        .empty-msg { text-align: center; color: #888; font-style: italic; display: none; padding: 50px; }
     </style>
 </head>
 <body>
@@ -31,7 +31,7 @@
 </nav>
 
 <main>
-    <div class="cart-container" id="cartContainer">
+    <div class="cart-container">
         <h2 style="margin-bottom: 30px; font-size: 24px;">Alışveriş Sepeti</h2>
         
         <table class="cart-table" id="cartTable">
@@ -45,13 +45,13 @@
                 <td><img src="tonik1.jpg" alt="Tonik" class="cart-product-img">Saf Gül Suyu Özlü Tonik</td>
                 <td>1</td>
                 <td>1.850,00 TL</td>
-                <td><button class="remove-btn" onclick="removeRow('row1')">Kaldır</button></td>
+                <td><button class="remove-btn" onclick="removeProduct('row1')">Kaldır</button></td>
             </tr>
             <tr id="row2">
                 <td><img src="krem1.jpg" alt="Krem" class="cart-product-img">Premium Gece Bakım Kremi</td>
                 <td>1</td>
                 <td>3.950,00 TL</td>
-                <td><button class="remove-btn" onclick="removeRow('row2')">Kaldır</button></td>
+                <td><button class="remove-btn" onclick="removeProduct('row2')">Kaldır</button></td>
             </tr>
         </table>
         
@@ -61,11 +61,24 @@
 </main>
 
 <script>
-    function removeRow(rowId) {
-        document.getElementById(rowId).remove();
-        // Eğer tabloda başlık hariç satır kalmadıysa mesajı göster
-        let table = document.getElementById('cartTable');
-        if (table.rows.length <= 1) {
+    // Sayfa yüklendiğinde hafızadaki silinmiş ürünleri kontrol et
+    window.onload = function() {
+        if (localStorage.getItem('removedRow1') === 'true') document.getElementById('row1').style.display = 'none';
+        if (localStorage.getItem('removedRow2') === 'true') document.getElementById('row2').style.display = 'none';
+        checkEmpty();
+    };
+
+    function removeProduct(rowId) {
+        document.getElementById(rowId).style.display = 'none';
+        // Hangi ürünün silindiğini tarayıcıya kaydet
+        localStorage.setItem('removed' + rowId.charAt(0).toUpperCase() + rowId.slice(1), 'true');
+        checkEmpty();
+    }
+
+    function checkEmpty() {
+        let r1 = document.getElementById('row1').style.display;
+        let r2 = document.getElementById('row2').style.display;
+        if (r1 === 'none' && r2 === 'none') {
             document.getElementById('cartTable').style.display = 'none';
             document.getElementById('emptyMsg').style.display = 'block';
         }
