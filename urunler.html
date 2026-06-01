@@ -4,100 +4,11 @@
     <meta charset="UTF-8">
     <title>Ürünlerimiz - Turkish Delight</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Dahili CSS: Zara Tarzı Modern E-Ticaret Izgarası -->
-    <style>
-        .zara-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            padding: 40px 20px;
-        }
-        .product-card {
-            width: 300px; /* Kare tasarım için genişlik */
-            text-align: center;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }
-        .image-container {
-            width: 300px;
-            height: 300px; /* Kare tasarım için yükseklik */
-            position: relative;
-            overflow: hidden;
-            background-color: #f4f4f4; /* Resim yüklenmezse görünecek gri arka plan */
-        }
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Resmi kareye tam sığdırır */
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: opacity 0.4s ease;
-        }
-        /* İkinci fotoğrafı başlangıçta gizle */
-        .image-container .img-back {
-            opacity: 0; 
-        }
-        /* Fare üzerine gelince ikinci fotoğrafı göster, ilkini gizle */
-        .image-container:hover .img-back {
-            opacity: 1;
-        }
-        .image-container:hover .img-front {
-            opacity: 0;
-        }
-        .product-info {
-            padding: 15px 0;
-        }
-        .product-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-        .product-price {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 15px;
-        }
-        .add-to-cart {
-            background-color: #000;
-            color: #fff;
-            border: none;
-            padding: 12px 0;
-            width: 100%;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .add-to-cart:hover {
-            background-color: #444;
-        }
-        /* Zorunlu Tablo İçin Şık Tasarım */
-        .summary-table-container {
-            max-width: 800px;
-            margin: 0 auto 60px auto;
-            padding: 20px;
-        }
-        .summary-table-container table {
-            border: none;
-            border-bottom: 1px solid #ddd;
-        }
-        .summary-table-container th {
-            background-color: #fff;
-            color: #000;
-            border-bottom: 2px solid #000;
-            text-transform: uppercase;
-            font-size: 12px;
-        }
-    </style>
 </head>
 <body>
 
 <header>
-    <h1>Ürünlerimiz</h1>
+    <h1>Koleksiyonumuz</h1>
 </header>
 
 <nav>
@@ -108,74 +19,119 @@
 </nav>
 
 <main>
-    <!-- ZARA TARZI ÜRÜN KARTLARI -->
     <div class="zara-grid">
         
-        <!-- Ürün 1 -->
         <div class="product-card">
             <div class="image-container">
                 <img src="tonik1.jpg" alt="Tonik" class="img-front">
                 <img src="tonik2.jpg" alt="Tonik Detay" class="img-back">
             </div>
             <div class="product-info">
-                <div class="product-title">Gül Suyu Tonik</div>
-                <div class="product-price">150.00 TL</div>
+                <div class="product-title">Saf Gül Suyu Özlü Tonik</div>
+                <div class="product-price">1.450,00 TL</div>
                 <button class="add-to-cart">Sepete Ekle</button>
             </div>
         </div>
 
-        <!-- Ürün 2 -->
         <div class="product-card">
             <div class="image-container">
                 <img src="krem1.jpg" alt="Krem" class="img-front">
                 <img src="krem2.jpg" alt="Krem Detay" class="img-back">
             </div>
             <div class="product-info">
-                <div class="product-title">Nemlendirici Bakım Kremi</div>
-                <div class="product-price">280.00 TL</div>
+                <div class="product-title">Premium Gece Bakım Kremi</div>
+                <div class="product-price">3.200,00 TL</div>
                 <button class="add-to-cart">Sepete Ekle</button>
             </div>
         </div>
 
-        <!-- Ürün 3 -->
         <div class="product-card">
             <div class="image-container">
                 <img src="losyon1.jpg" alt="Losyon" class="img-front">
                 <img src="losyon2.jpg" alt="Losyon Detay" class="img-back">
             </div>
             <div class="product-info">
-                <div class="product-title">Lavanta Özlü Vücut Losyonu</div>
-                <div class="product-price">220.00 TL</div>
-                <!-- Satıriçi CSS Kullanımı -->
-                <button class="add-to-cart" style="font-weight: bold;">Sepete Ekle</button>
+                <div class="product-title">Lavanta Vücut Losyonu</div>
+                <div class="product-price">2.100,00 TL</div>
+                <button class="add-to-cart">Sepete Ekle</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="image-container">
+                <img src="kapatici1.jpg" alt="Kapatıcı" class="img-front">
+                <img src="kapatici2.jpg" alt="Kapatıcı Detay" class="img-back">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Silky Touch Kapatıcı - 01</div>
+                <div class="product-price">1.850,00 TL</div>
+                <button class="add-to-cart">Sepete Ekle</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="image-container">
+                <img src="parlatici1.jpg" alt="Parlatıcı" class="img-front">
+                <img src="parlatici2.jpg" alt="Parlatıcı Detay" class="img-back">
+            </div>
+            <div class="product-info">
+                <div class="product-title">3D Işıltılı Parlatıcı - 405</div>
+                <div class="product-price">1.600,00 TL</div>
+                <button class="add-to-cart">Sepete Ekle</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="image-container">
+                <img src="sprey1.jpg" alt="Sprey" class="img-front">
+                <img src="sprey2.jpg" alt="Sprey Detay" class="img-back">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Bare Vanilla Özel Vücut Spreyi</div>
+                <div class="product-price">2.450,00 TL</div>
+                <button class="add-to-cart">Sepete Ekle</button>
             </div>
         </div>
 
     </div>
 
-    <!-- ZORUNLU TABLO GEREKSİNİMİ İÇİN MİNİMALİST LİSTE -->
-    <div class="summary-table-container">
-        <h3 style="text-align: center; margin-bottom: 20px; font-weight: normal; font-size: 16px;">Hızlı Fiyat Listesi</h3>
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h2>Fiyat Listesi Özeti</h2>
         <table>
             <tr>
-                <th>Ürün</th>
+                <th>Ürün Koleksiyonu</th>
                 <th>Kategori</th>
                 <th>Fiyat</th>
             </tr>
             <tr>
-                <td>Gül Suyu Tonik</td>
+                <td>Saf Gül Suyu Özlü Tonik</td>
                 <td>Cilt Bakımı</td>
-                <td>150.00 TL</td>
+                <td>1.450,00 TL</td>
             </tr>
             <tr>
-                <td>Nemlendirici Bakım Kremi</td>
+                <td>Premium Gece Bakım Kremi</td>
                 <td>Yüz Bakımı</td>
-                <td>280.00 TL</td>
+                <td>3.200,00 TL</td>
             </tr>
             <tr>
-                <td>Lavanta Özlü Vücut Losyonu</td>
+                <td>Lavanta Vücut Losyonu</td>
                 <td>Vücut Bakımı</td>
-                <td>220.00 TL</td>
+                <td>2.100,00 TL</td>
+            </tr>
+            <tr>
+                <td>Silky Touch Kapatıcı - 01</td>
+                <td>Makyaj</td>
+                <td>1.850,00 TL</td>
+            </tr>
+            <tr>
+                <td>3D Işıltılı Parlatıcı - 405</td>
+                <td>Dudak Bakımı</td>
+                <td>1.600,00 TL</td>
+            </tr>
+            <tr>
+                <td>Bare Vanilla Özel Vücut Spreyi</td>
+                <td>Koku & Ferahlık</td>
+                <td>2.450,00 TL</td>
             </tr>
         </table>
     </div>
