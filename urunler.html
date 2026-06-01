@@ -4,6 +4,95 @@
     <meta charset="UTF-8">
     <title>Ürünlerimiz - Turkish Delight</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Dahili CSS: Zara Tarzı Modern E-Ticaret Izgarası -->
+    <style>
+        .zara-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+        }
+        .product-card {
+            width: 300px; /* Kare tasarım için genişlik */
+            text-align: center;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        .image-container {
+            width: 300px;
+            height: 300px; /* Kare tasarım için yükseklik */
+            position: relative;
+            overflow: hidden;
+            background-color: #f4f4f4; /* Resim yüklenmezse görünecek gri arka plan */
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmi kareye tam sığdırır */
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.4s ease;
+        }
+        /* İkinci fotoğrafı başlangıçta gizle */
+        .image-container .img-back {
+            opacity: 0; 
+        }
+        /* Fare üzerine gelince ikinci fotoğrafı göster, ilkini gizle */
+        .image-container:hover .img-back {
+            opacity: 1;
+        }
+        .image-container:hover .img-front {
+            opacity: 0;
+        }
+        .product-info {
+            padding: 15px 0;
+        }
+        .product-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .product-price {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .add-to-cart {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 0;
+            width: 100%;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-to-cart:hover {
+            background-color: #444;
+        }
+        /* Zorunlu Tablo İçin Şık Tasarım */
+        .summary-table-container {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            padding: 20px;
+        }
+        .summary-table-container table {
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+        .summary-table-container th {
+            background-color: #fff;
+            color: #000;
+            border-bottom: 2px solid #000;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,29 +108,77 @@
 </nav>
 
 <main>
-    <h2>Fiyat Listesi</h2>
-    <table>
-        <tr>
-            <th>Ürün Adı</th>
-            <th>Kategori</th>
-            <th>Fiyat (TL)</th>
-        </tr>
-        <tr>
-            <td>Gül Suyu Tonik</td>
-            <td>Cilt Bakımı</td>
-            <td>150.00</td>
-        </tr>
-        <tr>
-            <td>Nemlendirici Bakım Kremi</td>
-            <td>Yüz Bakımı</td>
-            <td>280.00</td>
-        </tr>
-        <tr>
-            <td>Lavanta Özlü Vücut Losyonu</td>
-            <td>Vücut Bakımı</td>
-            <td>220.00</td>
-        </tr>
-    </table>
+    <!-- ZARA TARZI ÜRÜN KARTLARI -->
+    <div class="zara-grid">
+        
+        <!-- Ürün 1 -->
+        <div class="product-card">
+            <div class="image-container">
+                <img src="tonik1.jpg" alt="Tonik" class="img-front">
+                <img src="tonik2.jpg" alt="Tonik Detay" class="img-back">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Gül Suyu Tonik</div>
+                <div class="product-price">150.00 TL</div>
+                <button class="add-to-cart">Sepete Ekle</button>
+            </div>
+        </div>
+
+        <!-- Ürün 2 -->
+        <div class="product-card">
+            <div class="image-container">
+                <img src="krem1.jpg" alt="Krem" class="img-front">
+                <img src="krem2.jpg" alt="Krem Detay" class="img-back">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Nemlendirici Bakım Kremi</div>
+                <div class="product-price">280.00 TL</div>
+                <button class="add-to-cart">Sepete Ekle</button>
+            </div>
+        </div>
+
+        <!-- Ürün 3 -->
+        <div class="product-card">
+            <div class="image-container">
+                <img src="losyon1.jpg" alt="Losyon" class="img-front">
+                <img src="losyon2.jpg" alt="Losyon Detay" class="img-back">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Lavanta Özlü Vücut Losyonu</div>
+                <div class="product-price">220.00 TL</div>
+                <!-- Satıriçi CSS Kullanımı -->
+                <button class="add-to-cart" style="font-weight: bold;">Sepete Ekle</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ZORUNLU TABLO GEREKSİNİMİ İÇİN MİNİMALİST LİSTE -->
+    <div class="summary-table-container">
+        <h3 style="text-align: center; margin-bottom: 20px; font-weight: normal; font-size: 16px;">Hızlı Fiyat Listesi</h3>
+        <table>
+            <tr>
+                <th>Ürün</th>
+                <th>Kategori</th>
+                <th>Fiyat</th>
+            </tr>
+            <tr>
+                <td>Gül Suyu Tonik</td>
+                <td>Cilt Bakımı</td>
+                <td>150.00 TL</td>
+            </tr>
+            <tr>
+                <td>Nemlendirici Bakım Kremi</td>
+                <td>Yüz Bakımı</td>
+                <td>280.00 TL</td>
+            </tr>
+            <tr>
+                <td>Lavanta Özlü Vücut Losyonu</td>
+                <td>Vücut Bakımı</td>
+                <td>220.00 TL</td>
+            </tr>
+        </table>
+    </div>
 </main>
 
 <footer>
