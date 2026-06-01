@@ -26,14 +26,12 @@
             text-align: left;
             padding: 15px;
             border-bottom: 2px solid #D6A3A3;
-            letter-spacing: 1px;
         }
         .cart-table td {
             padding: 20px 15px;
             border-bottom: 1px solid #f0e6e6;
             color: #555;
             vertical-align: middle;
-            font-size: 14px;
         }
         .cart-product-img {
             width: 70px;
@@ -41,14 +39,6 @@
             object-fit: cover;
             vertical-align: middle;
             margin-right: 15px;
-        }
-        .cart-total {
-            text-align: right;
-            font-size: 22px;
-            font-family: 'Playfair Display', serif;
-            color: #A86B69;
-            margin-bottom: 30px;
-            padding-top: 20px;
         }
         .checkout-btn {
             background-color: #222;
@@ -59,13 +49,10 @@
             font-size: 12px;
             letter-spacing: 2px;
             cursor: pointer;
-            transition: background-color 0.4s;
             float: right;
+            transition: background-color 0.4s;
         }
-        .checkout-btn:hover {
-            background-color: #C68E8C;
-        }
-        /* Yeni Kaldır Butonu Tasarımı */
+        .checkout-btn:hover { background-color: #C68E8C; }
         .remove-btn {
             background: none;
             border: none;
@@ -73,17 +60,8 @@
             text-decoration: underline;
             cursor: pointer;
             font-size: 12px;
-            letter-spacing: 1px;
-            transition: color 0.3s;
         }
-        .remove-btn:hover {
-            color: #e74c3c; /* Üzerine gelince zarif bir kırmızı olur */
-        }
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
+        .remove-btn:hover { color: #e74c3c; }
     </style>
 </head>
 <body>
@@ -101,44 +79,31 @@
 </nav>
 
 <main>
-    <div class="cart-container clearfix">
-        <h2 style="text-align: left; margin-bottom: 30px; font-size: 24px;">Alışveriş Özeti</h2>
+    <div class="cart-container">
+        <h2 style="margin-bottom: 30px; font-size: 24px;">Alışveriş Sepeti</h2>
         
         <table class="cart-table">
             <tr>
                 <th>Ürün</th>
                 <th>Adet</th>
-                <th>Birim Fiyat</th>
-                <th>Toplam</th>
+                <th>Fiyat</th>
                 <th>İşlem</th>
             </tr>
             <tr>
-                <td>
-                    <img src="tonik1.jpg" alt="Tonik" class="cart-product-img">
-                    Saf Gül Suyu Özlü Tonik
-                </td>
+                <td><img src="tonik1.jpg" alt="Tonik" class="cart-product-img">Saf Gül Suyu Özlü Tonik</td>
                 <td>1</td>
-                <td>1.850,00 TL</td>
                 <td>1.850,00 TL</td>
                 <td><button class="remove-btn" onclick="this.closest('tr').style.display='none';">Kaldır</button></td>
             </tr>
             <tr>
-                <td>
-                    <img src="krem1.jpg" alt="Krem" class="cart-product-img">
-                    Premium Gece Bakım Kremi
-                </td>
+                <td><img src="krem1.jpg" alt="Krem" class="cart-product-img">Premium Gece Bakım Kremi</td>
                 <td>1</td>
-                <td>3.950,00 TL</td>
                 <td>3.950,00 TL</td>
                 <td><button class="remove-btn" onclick="this.closest('tr').style.display='none';">Kaldır</button></td>
             </tr>
         </table>
 
-        <div class="cart-total">
-            <strong>Ara Toplam: 5.800,00 TL</strong>
-        </div>
-
-        <button class="checkout-btn" onclick="alert('Siparişiniz başarıyla oluşturuldu! Lüksün ve doğallığın tadını çıkarın.')">Alışverişi Tamamla</button>
+        <button class="checkout-btn" onclick="alert('Siparişiniz başarıyla oluşturuldu!')">Alışverişi Tamamla</button>
     </div>
 </main>
 

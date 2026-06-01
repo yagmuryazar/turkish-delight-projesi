@@ -5,31 +5,22 @@
     <title>İletişim - Turkish Delight</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .media-container {
-            text-align: center;
-            margin: 40px auto;
-            max-width: 800px;
-            background: #fff;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-        }
-        video {
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-        audio {
-            width: 100%;
-            max-width: 300px;
-        }
+        .media-container { text-align: center; margin: 40px auto; max-width: 800px; background: #fff; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
+        video { width: 100%; max-width: 600px; margin-bottom: 20px; border-radius: 8px; }
+        audio { width: 100%; max-width: 300px; margin-bottom: 40px; }
+        
+        /* İletişim Formu Tasarımı */
+        .contact-form { text-align: left; max-width: 500px; margin: 0 auto; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 5px; color: #555; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; }
+        .submit-btn { background-color: #222; color: #fff; border: none; padding: 12px 30px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+        .submit-btn:hover { background-color: #C68E8C; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>İletişim</h1>
-</header>
+<header><h1>İletişim</h1></header>
 
 <nav>
     <a href="index.html">Ana Sayfa</a>
@@ -41,25 +32,40 @@
 
 <main>
     <div class="media-container">
-        <!-- İşte eksik olan başlığın geri geldi! -->
         <h2 style="color: #A86B69; margin-bottom: 20px;">Bize Ulaşın</h2>
         
         <video controls>
             <source src="tanitim.mp4" type="video/mp4">
-            Tarayıcınız video etiketini desteklemiyor.
         </video>
         
-        <h3 style="color: #A86B69; margin-top: 30px; margin-bottom: 15px;">Alışverişinize Eşlik Edecek Müzik</h3>
+        <h3 style="color: #A86B69; margin-top: 30px; margin-bottom: 15px;">Alışverişe Eşlik Eden Müzik</h3>
         <audio controls>
             <source src="muzik.mp3" type="audio/mpeg">
-            Tarayıcınız ses etiketini desteklemiyor.
         </audio>
+
+        <!-- İletişim Formu -->
+        <div class="contact-form">
+            <h3 style="color: #A86B69; margin-bottom: 20px;">Mesaj Bırakın</h3>
+            <form onsubmit="event.preventDefault(); alert('Mesajınız başarıyla iletildi!');">
+                <div class="form-group">
+                    <label>Adınız</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>E-posta</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Mesajınız</label>
+                    <textarea rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Gönder</button>
+            </form>
+        </div>
     </div>
 </main>
 
-<footer>
-    <p>&copy; 2026 Turkish Delight Kozmetik. Tüm hakları saklıdır.</p>
-</footer>
+<footer><p>&copy; 2026 Turkish Delight Kozmetik. Tüm hakları saklıdır.</p></footer>
 
 </body>
 </html>
