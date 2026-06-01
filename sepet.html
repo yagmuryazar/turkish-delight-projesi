@@ -1,89 +1,77 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>Sepetim - Turkish Delight</title>
-    <link rel="stylesheet" href="style.css">
-    
-    <style>
-        .cart-container { max-width: 850px; margin: 60px auto; background-color: #fff; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
-        .cart-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-        .cart-table th { background-color: #FDF6F7; color: #A86B69; font-family: 'Playfair Display', serif; font-weight: normal; text-align: left; padding: 15px; border-bottom: 2px solid #D6A3A3; }
-        .cart-table td { padding: 20px 15px; border-bottom: 1px solid #f0e6e6; color: #555; vertical-align: middle; }
-        .checkout-btn { background-color: #222; color: #fff; border: none; padding: 16px 45px; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; cursor: pointer; float: right; transition: background-color 0.4s; }
-        .checkout-btn:hover { background-color: #C68E8C; }
-        .remove-btn { background: none; border: none; color: #999; text-decoration: underline; cursor: pointer; font-size: 12px; }
-        .remove-btn:hover { color: #e74c3c; }
-        .empty-msg { text-align: center; color: #888; font-style: italic; padding: 50px; display: none; }
-    </style>
+<meta charset="UTF-8">
+<title>Sepetim - Turkish Delight</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.cart-container { max-width: 850px; margin: 60px auto; background-color: #fff; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
+.cart-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+.cart-table th { background-color: #FDF6F7; color: #A86B69; font-family: 'Playfair Display', serif; font-weight: normal; text-align: left; padding: 15px; border-bottom: 2px solid #D6A3A3; }
+.cart-table td { padding: 20px 15px; border-bottom: 1px solid #f0e6e6; color: #555; vertical-align: middle; }
+.cart-product-img { width: 70px; height: 70px; object-fit: cover; vertical-align: middle; margin-right: 15px; }
+.checkout-btn { background-color: #222; color: #fff; border: none; padding: 16px 45px; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; cursor: pointer; float: right; transition: background-color 0.4s; }
+.checkout-btn:hover { background-color: #C68E8C; }
+.remove-btn { background: none; border: none; color: #999; text-decoration: underline; cursor: pointer; font-size: 12px; }
+.remove-btn:hover { color: #e74c3c; }
+.empty-msg { text-align: center; color: #888; font-style: italic; display: none; }
+</style>
 </head>
 <body>
 
 <header><h1>SEPETİM</h1></header>
 
 <nav>
-    <a href="index.html">Ana Sayfa</a>
-    <a href="hakkimizda.html">Hakkımızda</a>
-    <a href="urunler.html">Ürünlerimiz</a>
-    <a href="iletisim.html">İletişim</a>
-    <a href="sepet.html" style="font-weight: bold; letter-spacing: 3px;">SEPETİM</a>
+<a href="index.html">Ana Sayfa</a>
+<a href="hakkimizda.html">Hakkımızda</a>
+<a href="urunler.html">Ürünlerimiz</a>
+<a href="iletisim.html">İletişim</a>
+<a href="sepet.html" style="font-weight: bold; letter-spacing: 3px;">SEPETİM</a>
 </nav>
 
 <main>
-    <div class="cart-container">
-        <h2 style="margin-bottom: 30px; font-size: 24px;">Alışveriş Sepeti</h2>
-        
-        <table class="cart-table" id="cartTable">
-            <thead>
-                <tr><th>Ürün</th><th>Fiyat</th><th>İşlem</th></tr>
-            </thead>
-            <tbody id="cartBody">
-                </tbody>
-        </table>
-        
-        <p id="emptyMsg" class="empty-msg">Sepetiniz şu an boş.</p>
-        <button class="checkout-btn" onclick="alert('Siparişiniz başarıyla oluşturuldu!')">Alışverişi Tamamla</button>
-    </div>
+<div class="cart-container" id="cartContainer">
+<h2 style="margin-bottom: 30px; font-size: 24px;">Alışveriş Sepeti</h2>
+<table class="cart-table" id="cartTable">
+<tr>
+<th>Ürün</th>
+<th>Adet</th>
+<th>Fiyat</th>
+<th>İşlem</th>
+</tr>
+<tr id="row1">
+<td><img src="tonik1.jpg" alt="Tonik" class="cart-product-img">Saf Gül Suyu Özlü Tonik</td>
+<td>1</td>
+<td>1.850,00 TL</td>
+<td><button class="remove-btn" onclick="removeRow('row1')">Kaldır</button></td>
+</tr>
+<tr id="row2">
+<td><img src="krem1.jpg" alt="Krem" class="cart-product-img">Premium Gece Bakım Kremi</td>
+<td>1</td>
+<td>3.950,00 TL</td>
+<td><button class="remove-btn" onclick="removeRow('row2')">Kaldır</button></td>
+</tr>
+</table>
+<p id="emptyMsg" class="empty-msg">Sepetiniz şu an boş.</p>
+<button class="checkout-btn" onclick="alert('Siparişiniz başarıyla oluşturuldu!')">Alışverişi Tamamla</button>
+</div>
 </main>
 
 <script>
-    function renderCart() {
-        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
-        let tbody = document.getElementById('cartBody');
-        let table = document.getElementById('cartTable');
-        let emptyMsg = document.getElementById('emptyMsg');
-        
-        tbody.innerHTML = '';
-        
-        if (cart.length === 0) {
-            table.style.display = 'none';
-            emptyMsg.style.display = 'block';
-        } else {
-            table.style.display = 'table';
-            emptyMsg.style.display = 'none';
-            cart.forEach((item, index) => {
-                tbody.innerHTML += `<tr>
-                    <td>${item.name}</td>
-                    <td>${item.price} TL</td>
-                    <td><button class="remove-btn" onclick="removeItem(${index})">Kaldır</button></td>
-                </tr>`;
-            });
-        }
-    }
-
-    function removeItem(index) {
-        let cart = JSON.parse(localStorage.getItem('myCart'));
-        cart.splice(index, 1);
-        localStorage.setItem('myCart', JSON.stringify(cart));
-        renderCart();
-    }
-
-    renderCart(); // Sayfa açıldığında sepeti çiz
+function removeRow(rowId) {
+document.getElementById(rowId).remove();
+// Eğer tabloda başlık hariç satır kalmadıysa mesajı göster
+let table = document.getElementById('cartTable');
+if (table.rows.length <= 1) {
+document.getElementById('cartTable').style.display = 'none';
+document.getElementById('emptyMsg').style.display = 'block';
+}
+}
 </script>
 
 <footer>
-    <p>&copy; 2026 Turkish Delight Kozmetik. Tüm hakları saklıdır.</p>
-</footer>
+<p>&copy; 2026 Turkish Delight Kozmetik. Tüm hakları saklıdır.</p>
+</footer>. bunun üzerinden düzelt
 
 </body>
-</html>
+</html> 
